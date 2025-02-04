@@ -1,0 +1,19 @@
+Criar um ambiente virtual
+    python -m venv ./ambiente_virtual
+
+Habilitar ambiente virtual:
+    ambiente_virtual/Scripts/Activate
+
+Desabilitar Ambiente Virtual:
+    deactivate
+
+Tutorial: https://towardsdatascience.com/reinforcement-learning-with-openai-d445c2c687d2
+Instalar OpenAI Gym (and other libraries)
+    pip install gym[classic_control]
+    pip install matplotlib
+    pip install 'gym[all]'
+
+Instalar Visualização de Grafos:
+    pip install networkx
+    pip install graphviz
+    
