@@ -2,12 +2,12 @@ from shared_functions import *
 from parameters import *
 import os
 
-path_dataset_3D = "./Dataset/ModelNet10/"
+path_dataset_3D = "./Dataset/ModelNet40/"
 classes = os.listdir(path_dataset_3D)
 print(classes)
 
 # Create the Multiview folder (root)
-path_dataset_multiview = "./ModelNet10-Multiview/"
+path_dataset_multiview = "./ModelNet40-Multiview/"
 if not os.path.exists(path_dataset_multiview):
     os.mkdir(path_dataset_multiview)
 
@@ -31,6 +31,7 @@ for curr_class in classes:
 
             # Load Object
             path_curr_obj = fold+curr_fold+"/"+curr_3D_obj
+            check_off_file(path_curr_obj) # Verifica se o Header do .OFF está OK, senão CORRIGE!
             mesh = load_object(path_curr_obj)
             plotter = Plotter(offscreen=True)  # Criar uma única instância para evitar abrir múltiplas janelas
 
@@ -50,6 +51,6 @@ for curr_class in classes:
                 screenshot(output_folder_path+output_filename)
                 print(f"({total_objs}) {output_folder_path+output_filename}")
             
-            # Stop if necessary (Debug Only)
-            # if total_objs >= 2:
+            # # Stop if necessary (Debug Only)
+            # if total_objs >= 1:
             #     exit(-1)

@@ -56,3 +56,33 @@ def combine_rotations_3D(angle = 45):
                 count += 1
     print(f"{count} rotations were created combining (x, y, z)")
     return rotations, count
+
+"""
+Description: Fixes malformed .OFF file header if necessary.
+Input:
+    lines (list of str): Lines read from an OFF file.
+Output:
+    list of str: Corrected lines.
+"""
+def check_off_file(path_curr_obj):
+    # Read .OFF file
+    with open(path_curr_obj, "r") as f:
+        lines = f.readlines()
+    
+    if not lines:
+        raise ValueError("Empty file")
+
+    # Case 1: Correct header
+    if lines[0].strip() == "OFF":
+        pass
+    
+    # Case 2: Malformed header like: OFF1479 1440 0
+    else:
+        if lines[0].startswith("OFF"):
+            lines = ["OFF\n", lines[0][3:]] + lines[1:]
+        else:
+            raise ValueError("Invalid OFF header format")
+        
+        # Save the corrected lines
+        with open(path_curr_obj, 'w') as f:
+            f.writelines(lines)
