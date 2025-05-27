@@ -1,7 +1,8 @@
 from shared_functions import *
 
 # Load Object
-mesh = load_object("Dataset/ModelNet10/chair/train/chair_0001.off")
+# mesh = load_object("GeneralFiles/Example-ModelNet/guitar_0001.off") # OFF
+mesh = load_object("GeneralFiles/Example-ShapeNet/model_normalized.obj") # OBJ
 
 # Rotate Object
 faces, vertices = rotation(mesh, 0, 0, 0)

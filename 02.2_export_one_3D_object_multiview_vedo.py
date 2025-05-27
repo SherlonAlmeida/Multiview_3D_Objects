@@ -20,7 +20,7 @@ angles = [
 #angles, n_angles = combine_rotations_3D(angle = 180)
 
 # Load Object
-mesh = load_object("Dataset/ModelNet10/chair/train/chair_0001.off")
+mesh = load_object("GeneralFiles/Example-ShapeNet/model_normalized.obj")
 plotter = Plotter(offscreen=True)  # Criar uma única instância para evitar abrir múltiplas janelas
 
 for idx, (x, y, z) in enumerate(angles):
